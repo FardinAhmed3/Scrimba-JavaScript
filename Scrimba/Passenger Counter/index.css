@@ -13,7 +13,7 @@ h1 {
 
 h2 {
     font-size: 50px;
-    margin-top: 0;
+    margin-top: 1;
     margin-bottom: 20px;
 }
 
@@ -36,3 +36,12 @@ button {
     background: darkgreen;
 }
 
+div{
+    border: none;
+    text-align: center;
+    margin-top: 80px;
+    align-content: center;
+    margin:auto;
+    border:3px solid rgb(191, 179, 179);
+    border-radius: 15px;
+}
