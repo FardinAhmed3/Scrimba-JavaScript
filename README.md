@@ -1,1 +1,1 @@
-Learning JavaScript for Frontend development
+<h1>Learning JavaScript for Frontend development
