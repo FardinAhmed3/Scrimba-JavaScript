@@ -10,3 +10,6 @@ if(sum <21){
 } else if(sum > 21){
     console.log("You're out!")
 }
+
+
+element=document.getElementById("")
