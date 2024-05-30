@@ -7,22 +7,23 @@ let isAlive=true
 let message=""
 
 
-if(sum <21){
+messageEl=document.getElementById("message-el")
+
+function startGame(){
+    if(sum <21){
     message=("Do you want to draw a new card?")
-} else if(sum === 21){
+    } else if(sum === 21){
     message=("Blackjack!")
     hasBlackJack=true
-} else {
+    } else {
     message=("You're out!")
     isAlive=false
-}
-let age=21
+    }
 
-if(age<21){
-    console.log("You can not enter the game!")
-}else{
-    console.log("Welcome")
+    messageEl.textContent=message
+
 }
+
 
 console.log(hasBlackJack)
 console.log(isAlive)

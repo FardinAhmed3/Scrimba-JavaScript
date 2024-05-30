@@ -1,0 +1,36 @@
+h1  {
+    margin: auto;
+    padding-top: 50px;
+    border: 5px;
+    border-radius: 10px;
+    text-align: center;
+    font-family:'Courier New', Courier, monospace;
+    font: bold;
+    outline-color: blueviolet;
+}
+
+body{
+    background-image: url("table.jpg");
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color:white;
+    margin: auto;
+}
+
+#message-el{
+    font-style: italic;
+}
+
+
+button {
+    color: #016f32;
+    width: 150px;
+    background: goldenrod;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    border: none;
+    border-radius: 2px;
+}
