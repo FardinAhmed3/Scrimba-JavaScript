@@ -23,7 +23,3 @@ function startGame(){
     messageEl.textContent=message
 
 }
-
-
-console.log(hasBlackJack)
-console.log(isAlive)
