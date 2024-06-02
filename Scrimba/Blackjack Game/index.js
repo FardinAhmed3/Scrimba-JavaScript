@@ -8,9 +8,11 @@ let message=""
 
 
 messageEl=document.getElementById("message-el")
+sumEl=document.getElementById("sum-el")
 
 function startGame(){
-    if(sum <21){
+    sumEl.textContent="Sum: "+sum
+    if(sum <=20){
     message=("Do you want to draw a new card?")
     } else if(sum === 21){
     message=("Blackjack!")
