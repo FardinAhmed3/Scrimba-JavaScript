@@ -1,42 +1,82 @@
-let firstCard=5
-let secondCard=16
+//Initialization step
 
-let sum=firstCard+secondCard
-let hasBlackJack=false
-let isAlive=true
+let cards=[] 
+let sum=0    
+let hasBlackJack=false  
+let isAlive=false
 let message=""
 
-
+//Assigning elements
 let messageEl=document.getElementById("message-el")
 let sumEl=document.getElementById("sum-el")
 let cardsEl=document.getElementById("cards-el")
+let playerEl=document.getElementById("player-el")
+
+//Complex or Composite data type
+//Creating the player object
+let player= {
+    name: "SR4",
+    chips: 200
+}
+
+playerEl.textContent=player.name+" :"+player.chips
+
+function getRandomCard(){
+    let randomNumber=Math.floor(Math.random()*13)+1
+
+    if (randomNumber === 1){
+    return 11
+    } else if( randomNumber>10){
+    return 10
+    } else{
+    return randomNumber
+    }
+}
 
 
 function startGame(){
-    cardsEl.textContent="Cards: "+firstCard+" "+secondCard
+    isAlive=true
+    let firstCard=getRandomCard()
+    let secondCard=getRandomCard()
+    cards=[firstCard,secondCard]
+    sum=firstCard+secondCard
+    renderGame()
+}
+
+
+function renderGame(){
+    cardsEl.textContent="Cards: "
+        for (let i=0;i<cards.length;i++){
+        cardsEl.textContent+=cards[i]+ " "
+    }
+
     sumEl.textContent="Sum: "+sum
 
 
-    if(sum <=20){
+    if (sum <=20){
     message=("Do you want to draw a new card?")
-    } else if(sum === 21){
+    }
+    else if (sum === 21){
     message=("Blackjack!")
     hasBlackJack=true
     } else {
     message=("You're out!")
     isAlive=false
     }
-
     messageEl.textContent=message
-
 }
 
 function newCard(){
-    console.log("Drawing a new card from the deck!")
+    if(isAlive===true && hasBlackJack===false){
+        console.log("Drawing a new card from the deck!")
 
-    let thirdCard=3
-    sum+=thirdCard
-    console.log(sum)
+        let thirdCard=getRandomCard()
+        sum+=thirdCard
+        cards.push(thirdCard)
 
-    startGame()
+        renderGame()
+    } else{
+        messageEl.textContent="Game Over! You cannot draw more cards"
+    }
+    
 }
