@@ -1,3 +1,5 @@
+// chrome://extensions/
+
 //Initialization step
 myLeads=[]
 const inputEl=document.getElementById("input-el")
@@ -14,8 +16,18 @@ inputBtn.addEventListener("click", function(){
 
 function renderLeads(){
     let listItems=""
-for (let i = 0; i < myLeads.length; i++) {
-    listItems += "<li><a href='#'>" + myLeads[i] + "</a></li>"
+    for (let i = 0; i < myLeads.length; i++) {
+   // listItems += `<li><a target='_blank' href='" + myLeads[i] +"'>"+myLeads[i] + "</a></li>`
+   //Using Template String/Literals
+
+   listItems += `
+   <li>
+       <a target='_blank' href='${myLeads[i]}'>
+           ${myLeads[i]}
+       </a>
+   </li>
+`
 }
+
 uListEl.innerHTML =listItems
 }
