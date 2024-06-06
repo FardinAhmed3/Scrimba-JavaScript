@@ -5,6 +5,13 @@ myLeads=[]
 const inputEl=document.getElementById("input-el")
 const inputBtn=document.getElementById("input-btn")
 const uListEl=document.getElementById("ulist-el")
+const deleteBtn = document.getElementById("delete-btn")
+const localStorageLeads=JSON.parse(localStorage.getItem("myLeads"))
+
+if (localStorageLeads) {
+    myLeads = localStorageLeads
+    renderLeads()
+}
 
 //Listening for button clicks
 inputBtn.addEventListener("click", function(){
@@ -12,6 +19,7 @@ inputBtn.addEventListener("click", function(){
     console.log(myLeads)            //Debug
     renderLeads()                   //Call render function to display
     inputEl.value=""                //Clear input field
+    localStorage.setItem("myLeads",JSON.stringify(myLeads))
     })
 
 function renderLeads(){
@@ -31,3 +39,10 @@ function renderLeads(){
 
 uListEl.innerHTML =listItems
 }
+
+deleteBtn.addEventListener("dblclick", function() {
+    console.log("double clicked!")
+    localStorage.clear()
+    myLeads = []
+    renderLeads()
+})
