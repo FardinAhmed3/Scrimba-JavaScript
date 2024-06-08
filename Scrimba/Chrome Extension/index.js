@@ -10,28 +10,19 @@ const localStorageLeads=JSON.parse(localStorage.getItem("myLeads"))
 
 if (localStorageLeads) {
     myLeads = localStorageLeads
-    renderLeads()
+    render(myLeads)
 }
 
-//Listening for button clicks
-inputBtn.addEventListener("click", function(){
-    myLeads.push(inputEl.value)     //Pushing the element in the array
-    console.log(myLeads)            //Debug
-    renderLeads()                   //Call render function to display
-    inputEl.value=""                //Clear input field
-    localStorage.setItem("myLeads",JSON.stringify(myLeads))
-    })
-
-function renderLeads(){
+function render(leads){
     let listItems=""
-    for (let i = 0; i < myLeads.length; i++) {
+    for (let i = 0; i < leads.length; i++) {
    // listItems += `<li><a target='_blank' href='" + myLeads[i] +"'>"+myLeads[i] + "</a></li>`
    //Using Template String/Literals
 
    listItems += `
    <li>
-       <a target='_blank' href='${myLeads[i]}'>
-           ${myLeads[i]}
+       <a target='_blank' href='${leads[i]}'>
+           ${leads[i]}
        </a>
    </li>
 `
@@ -40,9 +31,19 @@ function renderLeads(){
 uListEl.innerHTML =listItems
 }
 
+//Listening for button clicks
+
+inputBtn.addEventListener("click", function(){
+    myLeads.push(inputEl.value)     //Pushing the element in the array
+    console.log(myLeads)            //Debug
+    render()                   //Call render function to display
+    inputEl.value=""                //Clear input field
+    localStorage.setItem("myLeads",JSON.stringify(myLeads))
+    })
+
 deleteBtn.addEventListener("dblclick", function() {
     console.log("double clicked!")
     localStorage.clear()
     myLeads = []
-    renderLeads()
+    render()
 })
