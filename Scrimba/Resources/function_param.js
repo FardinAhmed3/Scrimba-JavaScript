@@ -31,3 +31,13 @@ function greetUser(greeting, name){
     console.log(`${greeting}, ${name}` )
 }
 greetUser("Hello","User")
+
+
+//Array Parameters
+
+arr=[2,4,6,8,10]
+function getFirst(arr){
+    return arr[0]
+}
+
+getFirst(arr)

@@ -7,11 +7,18 @@ const inputBtn=document.getElementById("input-btn")
 const uListEl=document.getElementById("ulist-el")
 const deleteBtn = document.getElementById("delete-btn")
 const localStorageLeads=JSON.parse(localStorage.getItem("myLeads"))
+const tabBtn=document.getElementById("tab-btn")
+
 
 if (localStorageLeads) {
     myLeads = localStorageLeads
     render(myLeads)
 }
+
+const tabs= [
+    {url:"https://www.linkedin.com/"}
+]
+
 
 function render(leads){
     let listItems=""
@@ -46,4 +53,10 @@ deleteBtn.addEventListener("dblclick", function() {
     localStorage.clear()
     myLeads = []
     render()
+})
+
+tabBtn.addEventListener("click", function(){
+    myLeads.push(tabs[0].urls)
+    localStorage.setItem("myLeads",JSON.stringify( myLeads ) )
+    render(myLeads)
 })
