@@ -16,7 +16,7 @@ if (localStorageLeads) {
 }
 
 const tabs= [
-    {url:"https://www.linkedin.com/"}
+    {url:""}
 ]
 
 
@@ -55,6 +55,7 @@ deleteBtn.addEventListener("dblclick", function() {
     render()
 })
 
+<<<<<<< HEAD
 tabBtn.addEventListener("click", function(){
     //Using chrome API to interact with the browser & get tab URLs
     chrome.tabs.query({active:true,currentWIndow:true}, function (tabs){
@@ -67,4 +68,12 @@ tabBtn.addEventListener("click", function(){
     myLeads.push(tabs[0].urls)
     localStorage.setItem("myLeads",JSON.stringify( myLeads ) )
     render(myLeads)
+=======
+tabBtn.addEventListener("click", function(){    
+    chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
+        myLeads.push(tabs[0].url)
+        localStorage.setItem("myLeads", JSON.stringify(myLeads) )
+        render(myLeads)
+    })
+>>>>>>> 657590450261357329436234c6e26e3de40b9f80
 })
