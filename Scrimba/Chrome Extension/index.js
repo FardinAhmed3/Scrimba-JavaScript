@@ -56,6 +56,14 @@ deleteBtn.addEventListener("dblclick", function() {
 })
 
 tabBtn.addEventListener("click", function(){
+    //Using chrome API to interact with the browser & get tab URLs
+    chrome.tabs.query({active:true,currentWIndow:true}, function (tabs){
+
+        let activeTab=tabs[0]
+        let activeTabId=activeTab.activeTabId
+
+    })
+
     myLeads.push(tabs[0].urls)
     localStorage.setItem("myLeads",JSON.stringify( myLeads ) )
     render(myLeads)
