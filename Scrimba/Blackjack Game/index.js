@@ -51,6 +51,7 @@ function getRandomCard(){
 
 function startGame(){
     clicks++;
+    displayClicksAmt()
     isAlive=true
     let firstCard=getRandomCard()
     let secondCard=getRandomCard()
@@ -84,7 +85,7 @@ function renderGame(){
 
 function newCard(){
     clicks++;
-
+    displayClicksAmt()
     if(isAlive===true && hasBlackJack===false){
         console.log("Drawing a new card from the deck!")
 
